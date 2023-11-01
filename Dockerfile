@@ -1,6 +1,6 @@
 # Runs Ubuntu 22.04 LTS (Jammy Jellyfish) as base image
 FROM ubuntu:22.04
-# Sets the maintainer to me, Minionguyjpro!
+# Sets the maintainer to US!
 LABEL org.opencontainers.image.authors="Minionguyjpro,Alphe"
 # Install all needed programs, including: GCC i386 libraries, Xorriso and GNU Mtools
 RUN apt-get update
