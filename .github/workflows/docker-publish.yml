@@ -72,7 +72,7 @@ jobs:
         with:
           registry: ${{ env.GITHUB_REGISTRY }}
           username: The-Kernel-Brothers
-          password: ${{ secrets.PAT_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
@@ -82,7 +82,7 @@ jobs:
         with:
           images: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}
           
-      # Extract metadata (tags, labels) for Docker
+      # Extract metadata (tags, labels) for GitHub
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata (GitHub Registry)
         id: meta_github
@@ -140,7 +140,7 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ghcr.io/minionguyjpro/kernelos_buildtools:latest
+          tags: ghcr.io/the-kernel-brothers/kernelos_buildtools:latest
           labels: ${{ steps.meta_github.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
